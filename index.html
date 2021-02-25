@@ -6,243 +6,242 @@
     <link rel="stylesheet" href="outlines.css">
 </head>
 <body>
-<div>
-    <div>
-        <h3>Погода здесь</h3>
-        <button>Обновить</button>
-    </div>
-    <div>
+<div class="title-container">
+    <h2 class="title">Погода здесь</h2>
+    <button id="update-btn">Обновить геолокацию</button>
+    <div></div>
+</div>
+<div class="user_city_information">
+    <div class="list">
+        <h3 class="user_city">Saint Petersburg</h3>
         <div>
-            <h2>Saint Petersburg</h2>
-            <img src="" alt="Иконка погоды">
-            <h1>8&degC</h1>
+            <img src="img/cloudy.svg" class="user_weather" id="user" alt="Иконка погоды">
+            <span>8&degC</span>
         </div>
-        <ul>
-            <li>
-                <div>Ветер</div>
-                <div>Умеренный, 6.0 м/с, Северо-Западный</div>
+    </div>
+    <ul class="list">
+        <li class="info">
+            <span>Ветер</span>
+            <span>Умеренный, 6.0 м/с, Северо-Западный</span>
+        </li>
+        <li class="info">
+            <span>Облачность</span>
+            <span>Переменная</span>
+        </li>
+        <li class="info">
+            <span>Давление</span>
+            <span>1013 гПа</span>
+        </li>
+        <li class="info">
+            <span>Влажность</span>
+            <span>52%</span>
+        </li>
+        <li class="info">
+            <span>Координаты</span>
+            <span>[59.88, 30.42]</span>
+        </li>
+    </ul>
+</div>
+<div class="here">
+    <h2>Избранное</h2>
+    <div>
+        <span>Добавить новый город</span>
+        <button>+</button>
+    </div>
+</div>
+<ul class="qwe">
+    <li class="awk">
+        <div class="list">
+            <div>
+                <h3>Moscow</h3>
+                <span>5&degC</span>
+                <img src="img/cloudy.svg" class="weather" alt="Иконка погоды">
+                <button>x</button>
+            </div>
+        </div>
+        <ul class="list">
+            <li class="info">
+                <span>Ветер</span>
+                <span>Умеренный, 6.0 м/с, Северо-Западный</span>
             </li>
-            <li>
-                <div>Облачность</div>
-                <div>Переменная</div>
+            <li class="info">
+                <span>Облачность</span>
+                <span>Переменная</span>
             </li>
-            <li>
-                <div>Давление</div>
-                <div>1013 кПа</div>
+            <li class="info">
+                <span>Давление</span>
+                <span>1013 гПа</span>
             </li>
-            <li>
-                <div>Влажность</div>
-                <div>52%</div>
+            <li class="info">
+                <span>Влажность</span>
+                <span>52%</span>
             </li>
-            <li>
-                <div>Координаты</div>
-                <div>[59.88, 30.42]</div>
+            <li class="info">
+                <span>Координаты</span>
+                <span>[59.88, 30.42]</span>
             </li>
         </ul>
-    </div>
-</div>
-<div>
-    <div>
-        <h3>Избранное</h3>
-        <div>
-            <h5>Добавить новый город</h5>
-            <button>+</button>
-        </div>
-    </div>
-    <div>
+    </li>
+    <li>
         <div>
             <div>
-                <div>
-                    <h2>Moscow</h2>
-                    <h1>5&degC</h1>
-                    <img src="" alt="Иконка погоды">
-                </div>
+                <h3>Helsinki</h3>
+                <span>3&degC</span>
+                <img src="img/cloudy.svg" class="weather" alt="Иконка погоды">
                 <button>x</button>
             </div>
-            <ul>
-                <li>
-                    <div>Ветер</div>
-                    <div>Умеренный, 6.0 м/с, Северо-Западный</div>
-                </li>
-                <li>
-                    <div>Облачность</div>
-                    <div>Переменная</div>
-                </li>
-                <li>
-                    <div>Давление</div>
-                    <div>1013 кПа</div>
-                </li>
-                <li>
-                    <div>Влажность</div>
-                    <div>52%</div>
-                </li>
-                <li>
-                    <div>Координаты</div>
-                    <div>[59.88, 30.42]</div>
-                </li>
-            </ul>
         </div>
+        <ul class="list">
+            <li class="info">
+                <span>Ветер</span>
+                <span>Умеренный, 6.0 м/с, Северо-Западный</span>
+            </li>
+            <li class="info">
+                <span>Облачность</span>
+                <span>Переменная</span>
+            </li>
+            <li class="info">
+                <span>Давление</span>
+                <span>1013 гПа</span>
+            </li>
+            <li class="info">
+                <span>Влажность</span>
+                <span>52%</span>
+            </li>
+            <li class="info">
+                <span>Координаты</span>
+                <span>[59.88, 30.42]</span>
+            </li>
+        </ul>
+    </li>
+    <li>
         <div>
             <div>
-                <div>
-                    <h2>Helsinki</h2>
-                    <h1>3&degC</h1>
-                    <img src="" alt="Иконка погоды">
-                </div>
+                <h3>Moscow</h3>
+                <span>5&degC</span>
+                <img src="img/cloudy.svg" class="weather" alt="Иконка погоды">
                 <button>x</button>
             </div>
-            <ul>
-                <li>
-                    <div>Ветер</div>
-                    <div>Умеренный, 6.0 м/с, Северо-Западный</div>
-                </li>
-                <li>
-                    <div>Облачность</div>
-                    <div>Переменная</div>
-                </li>
-                <li>
-                    <div>Давление</div>
-                    <div>1013 кПа</div>
-                </li>
-                <li>
-                    <div>Влажность</div>
-                    <div>52%</div>
-                </li>
-                <li>
-                    <div>Координаты</div>
-                    <div>[59.88, 30.42]</div>
-                </li>
-            </ul>
         </div>
+        <ul class="list">
+            <li class="info">
+                <span>Ветер</span>
+                <span>Умеренный, 6.0 м/с, Северо-Западный</span>
+            </li>
+            <li class="info">
+                <span>Облачность</span>
+                <span>Переменная</span>
+            </li>
+            <li class="info">
+                <span>Давление</span>
+                <span>1013 гПа</span>
+            </li>
+            <li class="info">
+                <span>Влажность</span>
+                <span>52%</span>
+            </li>
+            <li class="info">
+                <span>Координаты</span>
+                <span>[59.88, 30.42]</span>
+            </li>
+        </ul>
+    </li>
+    <li>
         <div>
             <div>
-                <div>
-                    <h2>Moscow</h2>
-                    <h1>5&degC</h1>
-                    <img src="" alt="Иконка погоды">
-                </div>
+                <h3>Helsinki</h3>
+                <span>3&degC</span>
+                <img src="img/cloudy.svg" class="weather" alt="Иконка погоды">
                 <button>x</button>
             </div>
-            <ul>
-                <li>
-                    <div>Ветер</div>
-                    <div>Умеренный, 6.0 м/с, Северо-Западный</div>
-                </li>
-                <li>
-                    <div>Облачность</div>
-                    <div>Переменная</div>
-                </li>
-                <li>
-                    <div>Давление</div>
-                    <div>1013 кПа</div>
-                </li>
-                <li>
-                    <div>Влажность</div>
-                    <div>52%</div>
-                </li>
-                <li>
-                    <div>Координаты</div>
-                    <div>[59.88, 30.42]</div>
-                </li>
-            </ul>
         </div>
+        <ul class="list">
+            <li class="info">
+                <span>Ветер</span>
+                <span>Умеренный, 6.0 м/с, Северо-Западный</span>
+            </li>
+            <li class="info">
+                <span>Облачность</span>
+                <span>Переменная</span>
+            </li>
+            <li class="info">
+                <span>Давление</span>
+                <span>1013 гПа</span>
+            </li>
+            <li class="info">
+                <span>Влажность</span>
+                <span>52%</span>
+            </li>
+            <li class="info">
+                <span>Координаты</span>
+                <span>[59.88, 30.42]</span>
+            </li>
+        </ul>
+    </li>
+    <li>
         <div>
             <div>
-                <div>
-                    <h2>Helsinki</h2>
-                    <h1>3&degC</h1>
-                    <img src="" alt="Иконка погоды">
-                </div>
+                <h3>Moscow</h3>
+                <span>5&degC</span>
+                <img src="img/cloudy.svg" class="weather" alt="Иконка погоды">
                 <button>x</button>
             </div>
-            <ul>
-                <li>
-                    <div>Ветер</div>
-                    <div>Умеренный, 6.0 м/с, Северо-Западный</div>
-                </li>
-                <li>
-                    <div>Облачность</div>
-                    <div>Переменная</div>
-                </li>
-                <li>
-                    <div>Давление</div>
-                    <div>1013 кПа</div>
-                </li>
-                <li>
-                    <div>Влажность</div>
-                    <div>52%</div>
-                </li>
-                <li>
-                    <div>Координаты</div>
-                    <div>[59.88, 30.42]</div>
-                </li>
-            </ul>
         </div>
+        <ul class="list">
+            <li class="info">
+                <span>Ветер</span>
+                <span>Умеренный, 6.0 м/с, Северо-Западный</span>
+            </li>
+            <li class="info">
+                <span>Облачность</span>
+                <span>Переменная</span>
+            </li>
+            <li class="info">
+                <span>Давление</span>
+                <span>1013 гПа</span>
+            </li>
+            <li class="info">
+                <span>Влажность</span>
+                <span>52%</span>
+            </li>
+            <li class="info">
+                <span>Координаты</span>
+                <span>[59.88, 30.42]</span>
+            </li>
+        </ul>
+    </li>
+    <li>
         <div>
             <div>
-                <div>
-                    <h2>Moscow</h2>
-                    <h1>5&degC</h1>
-                    <img src="" alt="Иконка погоды">
-                </div>
+                <h3>Helsinki</h3>
+                <span>3&degC</span>
+                <img src="img/cloudy.svg" class="weather" alt="Иконка погоды">
                 <button>x</button>
             </div>
-            <ul>
-                <li>
-                    <div>Ветер</div>
-                    <div>Умеренный, 6.0 м/с, Северо-Западный</div>
-                </li>
-                <li>
-                    <div>Облачность</div>
-                    <div>Переменная</div>
-                </li>
-                <li>
-                    <div>Давление</div>
-                    <div>1013 кПа</div>
-                </li>
-                <li>
-                    <div>Влажность</div>
-                    <div>52%</div>
-                </li>
-                <li>
-                    <div>Координаты</div>
-                    <div>[59.88, 30.42]</div>
-                </li>
-            </ul>
         </div>
-        <div>
-            <div>
-                <div>
-                    <h2>Helsinki</h2>
-                    <h1>3&degC</h1>
-                    <img src="" alt="Иконка погоды">
-                </div>
-                <button>x</button>
-            </div>
-            <ul>
-                <li>
-                    <div>Ветер</div>
-                    <div>Умеренный, 6.0 м/с, Северо-Западный</div>
-                </li>
-                <li>
-                    <div>Облачность</div>
-                    <div>Переменная</div>
-                </li>
-                <li>
-                    <div>Давление</div>
-                    <div>1013 кПа</div>
-                </li>
-                <li>
-                    <div>Влажность</div>
-                    <div>52%</div>
-                </li>
-                <li>
-                    <div>Координаты</div>
-                    <div>[59.88, 30.42]</div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+        <ul class="list">
+            <li class="info">
+                <span>Ветер</span>
+                <span>Умеренный, 6.0 м/с, Северо-Западный</span>
+            </li>
+            <li class="info">
+                <span>Облачность</span>
+                <span>Переменная</span>
+            </li>
+            <li class="info">
+                <span>Давление</span>
+                <span>1013 гПа</span>
+            </li>
+            <li class="info">
+                <span>Влажность</span>
+                <span>52%</span>
+            </li>
+            <li class="info">
+                <span>Координаты</span>
+                <span>[59.88, 30.42]</span>
+            </li>
+        </ul>
+    </li>
+</ul>
 </body>
 </html>

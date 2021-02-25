@@ -1,0 +1,96 @@
+#city {
+
+}
+
+.rty {
+    display: flex;
+    background-color: aqua;
+}
+
+.qwe {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.list {
+    width: 400px;
+    max-width: 90vw;
+    padding: 0;
+    margin: 0;
+}
+
+.title-container {
+    display: flex;
+    margin: 15px 0;
+    justify-content: space-between;
+}
+
+.user_city_information {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333336;
+    margin-bottom: 8px;
+    color: #8f8f8f;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+
+span {
+    text-align: right;
+}
+
+.awk {
+    display: flex;
+    flex-direction: column;
+
+}
+
+html {
+    font-family: Calibri, serif;
+    background-color: #222226;
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    max-width: 1000px;
+    width: 90vw;
+    margin: 0;
+}
+
+.title {
+    font-size: 4vw;
+    margin: 0;
+}
+
+h3 {
+    font-size: 40px;
+    margin: 0;
+}
+
+.update-btn {
+    justify-self: left;
+}
+
+.r {
+    flex: 1;
+}
+
+.weather {
+    height: 3vw;
+}
+
+.user_weather {
+    height: 10vw;
+}
