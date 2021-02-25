@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Погода здесь</title>
     <link rel="stylesheet" href="outlines.css">
 </head>
@@ -9,14 +10,14 @@
 <div class="title-container">
     <h2 class="title">Погода здесь</h2>
     <button id="update-btn">Обновить геолокацию</button>
-    <div></div>
+    <div class="title"></div>
 </div>
-<div class="user_city_information">
-    <div class="list">
-        <h3 class="user_city">Saint Petersburg</h3>
-        <div>
-            <img src="img/cloudy.svg" class="user_weather" id="user" alt="Иконка погоды">
-            <span>8&degC</span>
+<div class="user-city-information">
+    <div class="list" id="user-information-container">
+        <h3 class="user-city">Saint Petersburg</h3>
+        <div id="user-weather-container">
+            <img src="img/cloudy.svg" class="user-weather" id="user" alt="Иконка погоды">
+            <span class="user-degree">8&degC</span>
         </div>
     </div>
     <ul class="list">
