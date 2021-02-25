@@ -1,5 +1,14 @@
-#city {
+.city-information {
+    display: flex;
+    margin-bottom: 1vw;
+    flex-direction: row-reverse;
+}
 
+.city {
+    display: flex;
+    align-items: center;
+    font-size: 2vw;
+    margin: 0 auto 0 0;
 }
 
 .rty {
@@ -56,13 +65,7 @@
 }
 
 span {
-    font-size: 1.2vw;
-}
-
-.awk {
-    display: flex;
-    flex-direction: column;
-
+    font-size: 1.4vw;
 }
 
 html {
@@ -80,7 +83,7 @@ body {
 }
 
 .title {
-    font-size: 4vw;
+    font-size: 3vw;
     margin: 0;
     flex: 1;
 }
@@ -99,15 +102,40 @@ body {
     justify-self: left;
 }
 
-.r {
-    flex: 1;
-}
-
 .weather {
     height: 3vw;
+    margin-right: 4vw;
 }
 
 .user-weather {
-    height: 10vw;
-    align-self: flex-end;
+    height: 8vw;
+    align-self: center;
+}
+
+.favorite-title {
+    margin: 4vw 0 2vw 0;
+    display: flex;
+}
+
+.add-favorite {
+    display: flex;
+}
+
+.degree {
+    display: flex;
+    align-items: center;
+    margin-right: 1.5vw;
+    font-size: 2.5vw;
+}
+
+.favorite {
+    list-style-type: none;
+    margin-top: 2vw;
+}
+
+.close-btn {
+}
+
+.update-btn {
+    border-radius: 5px;
 }
