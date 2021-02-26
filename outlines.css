@@ -195,7 +195,6 @@ button:focus {
 
 .add-btn {
     transform: rotate(45deg);
-    display: flex;
     align-items: center;
 }
 
@@ -247,5 +246,8 @@ button:focus {
     }
     .title {
         flex: none;
+    }
+    .add-favorite-input {
+
     }
 }
