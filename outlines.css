@@ -1,13 +1,13 @@
 .city-information {
     display: flex;
-    margin-bottom: 1vw;
+    margin-bottom: 0.33rem;
     flex-direction: row-reverse;
 }
 
 .city {
     display: flex;
     align-items: center;
-    font-size: 2vw;
+    font-size: 0.66rem;
     margin: 0 auto 0 0;
 }
 
@@ -25,10 +25,14 @@
 }
 
 .list {
-    width: 30vw;
-    max-width: 90vw;
+    width: 10rem;
+    max-width: 30rem;
     padding: 0;
     margin: 0;
+    height: 5.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #user-information-container {
@@ -44,8 +48,9 @@
 
 .title-container {
     display: flex;
-    margin: 2vw 0 4vw 0;
+    margin: 0.66rem 0 1.33rem 0;
     justify-content: space-between;
+    align-items: center;
 }
 
 .user-city-information {
@@ -58,14 +63,14 @@
     display: flex;
     justify-content: space-between;
     background-color: #333336;
-    margin-bottom: 0.6vw;
     color: #8f8f8f;
-    padding: 0.3vw;
-    border-radius: 0.15vw;
+    padding: 0.1rem;
+    border-radius: 0.05rem;
 }
 
 span {
-    font-size: 1.4vw;
+    font-size: 0.5rem;
+    text-align: right;
 }
 
 html {
@@ -74,27 +79,31 @@ html {
     color: whitesmoke;
     display: flex;
     justify-content: center;
+    font-size: 3vw;
 }
 
 body {
-    max-width: 1000px;
-    width: 70vw;
+    width: 23rem;
     margin: 0;
 }
 
 .title {
-    font-size: 3vw;
-    margin: 0;
+    font-size: 1rem;
     flex: 1;
+    margin: 0;
+}
+
+#favorite {
+    margin-bottom: 0.3rem;
 }
 
 .user-degree {
-    font-size: 8vw;
+    font-size: 2.8rem;
     align-self: flex-end;
 }
 
 .user-city {
-    font-size: 3vw;
+    font-size: 1rem;
     margin: 0;
 }
 
@@ -103,39 +112,141 @@ body {
 }
 
 .weather {
-    height: 3vw;
-    margin-right: 4vw;
+    height: 1rem;
+    margin-right: 1.3rem;
 }
 
 .user-weather {
-    height: 8vw;
+    height: 2.8rem;
     align-self: center;
 }
 
 .favorite-title {
-    margin: 4vw 0 2vw 0;
+    margin-top: 1.3rem;
     display: flex;
+    flex-wrap: wrap;
+}
+
+.degree {
+    display: flex;
+    align-items: center;
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.favorite {
+    list-style-type: none;
+    margin-top: 0.7rem;
+}
+
+.update-btn {
+    border-radius: 8px;
+    width: 5rem;
+    background-color: #8f8f8f;
+    color: #333336;
+    font-size: 0.33rem;
+    transition: color 0.3s, background-color 0.3s;
+    border-color: transparent;
+    align-self: stretch;
+}
+
+.update-btn:hover {
+    cursor: pointer;
+    background-color: #333336;
+    color: #8f8f8f;
+}
+
+.close-btn {
+    width: 0.66rem;
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+}
+
+.close-btn svg {
+    fill: #8f8f8f;
+    transition: all 0.1s ease;
+}
+
+.close-btn:hover {
+    cursor: pointer;
+}
+
+.close-btn:hover svg {
+    fill: whitesmoke;
+}
+
+button:active {
+    outline: none;
+}
+
+button:focus {
+    outline: none;
 }
 
 .add-favorite {
     display: flex;
 }
 
-.degree {
-    display: flex;
-    align-items: center;
-    margin-right: 1.5vw;
-    font-size: 2.5vw;
+.add-favorite-input {
+    background-color: whitesmoke;
+    width: 6.8rem;
+    margin-right: 0.3rem;
+    font-size: 0.4rem;
+    border-radius: 4px;
+    height: 1rem;
 }
 
-.favorite {
-    list-style-type: none;
-    margin-top: 2vw;
+.add-btn {
+    transform: rotate(45deg);
 }
 
-.close-btn {
+.add-favorite-input:focus {
+    outline: none;
 }
 
-.update-btn {
-    border-radius: 5px;
+.update-btn-icon {
+    display: none;
+    background-color: transparent;
+    border: none;
+    width: 2rem;
+    height: 1rem;
+}
+
+.update-btn-icon svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+@media screen and (max-width: 950px) {
+    html {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 715px) {
+    body {
+        width: 90vw;
+    }
+    #user-information-container {
+        width: 90vw;
+    }
+    .list {
+        width: 90vw;
+    }
+    .update-btn {
+        display: none;
+    }
+    .update-btn-icon {
+        display: inherit;
+    }
+    div.title {
+        display: none;
+    }
+    #favorite {
+        width: 90vw;
+    }
+    .title {
+        flex: none;
+    }
 }

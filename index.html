@@ -10,6 +10,36 @@
 <div class="title-container">
     <h2 class="title">Погода здесь</h2>
     <button class="update-btn">Обновить геолокацию</button>
+    <button class="update-btn-icon">
+        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+         width="344.000000pt" height="344.000000pt" viewBox="0 0 344.000000 344.000000"
+         preserveAspectRatio="xMidYMid meet">
+
+        <g transform="translate(0.000000,344.000000) scale(0.100000,-0.100000)"
+           fill="whitesmoke" stroke="none">
+            <path d="M1555 3271 c-475 -56 -880 -305 -1142 -703 -108 -164 -179 -336 -225
+-543 -19 -85 -22 -131 -22 -300 0 -229 15 -321 84 -517 52 -148 95 -187 158
+-142 44 31 44 54 2 173 -65 183 -84 289 -84 486 0 190 18 300 75 462 119 336
+392 639 713 793 197 94 373 133 601 133 233 1 411 -38 607 -132 83 -39 230
+-130 242 -149 3 -5 -24 -12 -67 -16 -39 -4 -82 -14 -95 -22 -49 -32 -48 -97 3
+-130 24 -16 35 -16 183 0 278 31 267 20 253 242 -6 87 -11 167 -11 177 0 31
+-45 67 -84 67 -54 0 -76 -35 -76 -121 l0 -68 -82 55 c-165 111 -370 194 -574
+234 -122 23 -348 34 -459 21z"/>
+            <path d="M1625 2634 c-169 -27 -343 -132 -440 -268 -133 -186 -167 -403 -101
+-631 57 -197 255 -539 461 -798 108 -136 156 -161 232 -119 74 40 362 451 472
+673 142 287 170 481 100 694 -67 199 -243 368 -449 429 -55 17 -219 28 -275
+20z m216 -430 c135 -67 185 -232 112 -366 -46 -85 -134 -136 -233 -136 -30 0
+-69 5 -87 11 -177 65 -237 285 -117 425 83 97 211 123 325 66z"/>
+            <path d="M3043 2390 c-30 -12 -56 -55 -50 -83 3 -12 21 -66 41 -119 255 -696
+-87 -1470 -778 -1758 -360 -151 -785 -140 -1140 30 -81 38 -228 129 -240 148
+-3 6 24 13 70 17 91 8 127 33 127 85 0 37 -40 80 -74 80 -35 0 -346 -40 -364
+-46 -37 -15 -43 -51 -33 -214 5 -85 11 -165 14 -178 12 -60 91 -83 132 -39 18
+19 22 35 22 95 l0 72 93 -61 c172 -114 359 -189 571 -231 158 -31 414 -31 574
+0 425 84 773 317 1013 675 109 164 185 347 230 557 33 150 33 448 1 596 -43
+198 -101 348 -143 369 -32 17 -35 17 -66 5z"/>
+        </g>
+    </svg>
+    </button>
     <div class="title"></div>
 </div>
 <div class="user-city-information">
@@ -44,16 +74,34 @@
     </ul>
 </div>
 <div class="favorite-title">
-    <h2 class="title">Избранное</h2>
+    <h2 class="title" id="favorite">Избранное</h2>
     <form action="" class="add-favorite">
-        <input type="text" placeholder="Добавить новый город">
-        <button>+</button>
+        <input type="text" class="add-favorite-input" placeholder="Добавить новый город">
+        <button class="close-btn add-btn">
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 x="0px" y="0px"
+                 viewBox="0 0 22.88 22.88" style="enable-background:new 0 0 22.88 22.88;" xml:space="preserve">
+<path d="M0.324,1.909c-0.429-0.429-0.429-1.143,0-1.587c0.444-0.429,1.143-0.429,1.587,0l9.523,9.539
+	l9.539-9.539c0.429-0.429,1.143-0.429,1.571,0c0.444,0.444,0.444,1.159,0,1.587l-9.523,9.524l9.523,9.539
+	c0.444,0.429,0.444,1.143,0,1.587c-0.429,0.429-1.143,0.429-1.571,0l-9.539-9.539l-9.523,9.539c-0.444,0.429-1.143,0.429-1.587,0
+	c-0.429-0.444-0.429-1.159,0-1.587l9.523-9.539L0.324,1.909z"/>
+</svg>
+        </button>
     </form>
 </div>
 <ul class="qwe">
     <li class="favorite">
         <div class="city-information">
-            <button class="close-btn">x</button>
+            <button class="close-btn">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     x="0px" y="0px"
+                     viewBox="0 0 22.88 22.88" style="enable-background:new 0 0 22.88 22.88;" xml:space="preserve">
+<path d="M0.324,1.909c-0.429-0.429-0.429-1.143,0-1.587c0.444-0.429,1.143-0.429,1.587,0l9.523,9.539
+	l9.539-9.539c0.429-0.429,1.143-0.429,1.571,0c0.444,0.444,0.444,1.159,0,1.587l-9.523,9.524l9.523,9.539
+	c0.444,0.429,0.444,1.143,0,1.587c-0.429,0.429-1.143,0.429-1.571,0l-9.539-9.539l-9.523,9.539c-0.444,0.429-1.143,0.429-1.587,0
+	c-0.429-0.444-0.429-1.159,0-1.587l9.523-9.539L0.324,1.909z"/>
+</svg>
+            </button>
             <img src="img/cloudy.svg" class="weather" alt="Иконка погоды">
             <span class="degree">5&degC</span>
             <h3 class="city">Moscow</h3>
@@ -84,7 +132,16 @@
     <li class="favorite">
 
         <div class="city-information">
-            <button class="close-btn">x</button>
+            <button class="close-btn">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     x="0px" y="0px"
+                     viewBox="0 0 22.88 22.88" style="enable-background:new 0 0 22.88 22.88;" xml:space="preserve">
+<path d="M0.324,1.909c-0.429-0.429-0.429-1.143,0-1.587c0.444-0.429,1.143-0.429,1.587,0l9.523,9.539
+	l9.539-9.539c0.429-0.429,1.143-0.429,1.571,0c0.444,0.444,0.444,1.159,0,1.587l-9.523,9.524l9.523,9.539
+	c0.444,0.429,0.444,1.143,0,1.587c-0.429,0.429-1.143,0.429-1.571,0l-9.539-9.539l-9.523,9.539c-0.444,0.429-1.143,0.429-1.587,0
+	c-0.429-0.444-0.429-1.159,0-1.587l9.523-9.539L0.324,1.909z"/>
+</svg>
+            </button>
             <img src="img/cloudy.svg" class="weather" alt="Иконка погоды">
             <span class="degree">3&degC</span>
             <h3 class="city">Helsinki</h3>
@@ -115,7 +172,16 @@
     <li class="favorite">
 
         <div class="city-information">
-            <button class="close-btn">x</button>
+            <button class="close-btn">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     x="0px" y="0px"
+                     viewBox="0 0 22.88 22.88" style="enable-background:new 0 0 22.88 22.88;" xml:space="preserve">
+<path d="M0.324,1.909c-0.429-0.429-0.429-1.143,0-1.587c0.444-0.429,1.143-0.429,1.587,0l9.523,9.539
+	l9.539-9.539c0.429-0.429,1.143-0.429,1.571,0c0.444,0.444,0.444,1.159,0,1.587l-9.523,9.524l9.523,9.539
+	c0.444,0.429,0.444,1.143,0,1.587c-0.429,0.429-1.143,0.429-1.571,0l-9.539-9.539l-9.523,9.539c-0.444,0.429-1.143,0.429-1.587,0
+	c-0.429-0.444-0.429-1.159,0-1.587l9.523-9.539L0.324,1.909z"/>
+</svg>
+            </button>
             <img src="img/cloudy.svg" class="weather" alt="Иконка погоды">
             <span class="degree">5&degC</span>
             <h3 class="city">Moscow</h3>
@@ -146,7 +212,16 @@
     <li class="favorite">
 
         <div class="city-information">
-            <button class="close-btn">x</button>
+            <button class="close-btn">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     x="0px" y="0px"
+                     viewBox="0 0 22.88 22.88" style="enable-background:new 0 0 22.88 22.88;" xml:space="preserve">
+<path d="M0.324,1.909c-0.429-0.429-0.429-1.143,0-1.587c0.444-0.429,1.143-0.429,1.587,0l9.523,9.539
+	l9.539-9.539c0.429-0.429,1.143-0.429,1.571,0c0.444,0.444,0.444,1.159,0,1.587l-9.523,9.524l9.523,9.539
+	c0.444,0.429,0.444,1.143,0,1.587c-0.429,0.429-1.143,0.429-1.571,0l-9.539-9.539l-9.523,9.539c-0.444,0.429-1.143,0.429-1.587,0
+	c-0.429-0.444-0.429-1.159,0-1.587l9.523-9.539L0.324,1.909z"/>
+</svg>
+            </button>
             <img src="img/cloudy.svg" class="weather" alt="Иконка погоды">
             <span class="degree">3&degC</span>
             <h3 class="city">Helsinki</h3>
@@ -175,9 +250,17 @@
         </ul>
     </li>
     <li class="favorite">
-
         <div class="city-information">
-            <button class="close-btn">x</button>
+            <button class="close-btn">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     x="0px" y="0px"
+                     viewBox="0 0 22.88 22.88" style="enable-background:new 0 0 22.88 22.88;" xml:space="preserve">
+<path d="M0.324,1.909c-0.429-0.429-0.429-1.143,0-1.587c0.444-0.429,1.143-0.429,1.587,0l9.523,9.539
+	l9.539-9.539c0.429-0.429,1.143-0.429,1.571,0c0.444,0.444,0.444,1.159,0,1.587l-9.523,9.524l9.523,9.539
+	c0.444,0.429,0.444,1.143,0,1.587c-0.429,0.429-1.143,0.429-1.571,0l-9.539-9.539l-9.523,9.539c-0.444,0.429-1.143,0.429-1.587,0
+	c-0.429-0.444-0.429-1.159,0-1.587l9.523-9.539L0.324,1.909z"/>
+</svg>
+            </button>
             <img src="img/cloudy.svg" class="weather" alt="Иконка погоды">
             <span class="degree">5&degC</span>
             <h3 class="city">Moscow</h3>
@@ -207,7 +290,16 @@
     </li>
     <li class="favorite">
         <div class="city-information">
-            <button class="close-btn">x</button>
+            <button class="close-btn">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     x="0px" y="0px"
+                     viewBox="0 0 22.88 22.88" style="enable-background:new 0 0 22.88 22.88;" xml:space="preserve">
+<path d="M0.324,1.909c-0.429-0.429-0.429-1.143,0-1.587c0.444-0.429,1.143-0.429,1.587,0l9.523,9.539
+	l9.539-9.539c0.429-0.429,1.143-0.429,1.571,0c0.444,0.444,0.444,1.159,0,1.587l-9.523,9.524l9.523,9.539
+	c0.444,0.429,0.444,1.143,0,1.587c-0.429,0.429-1.143,0.429-1.571,0l-9.539-9.539l-9.523,9.539c-0.444,0.429-1.143,0.429-1.587,0
+	c-0.429-0.444-0.429-1.159,0-1.587l9.523-9.539L0.324,1.909z"/>
+</svg>
+            </button>
             <img src="img/cloudy.svg" class="weather" alt="Иконка погоды">
             <span class="degree">3&degC</span>
             <h3 class="city">Helsinki</h3>
