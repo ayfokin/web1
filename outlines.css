@@ -194,7 +194,7 @@ button:focus {
 }
 
 .add-btn {
-    transform: rotate(45deg);
+    transform: rotate(45deg) scale(0.8);
     align-items: center;
 }
 
@@ -247,7 +247,12 @@ button:focus {
     .title {
         flex: none;
     }
+    .add-favorite {
+        width: 90vw;
+        display: flex;
+        justify-content: space-between;
+    }
     .add-favorite-input {
-
+        flex: auto;
     }
 }
