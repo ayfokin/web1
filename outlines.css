@@ -16,7 +16,7 @@
     background-color: aqua;
 }
 
-.qwe {
+#favorite-cities {
     display: flex;
     flex-wrap: wrap;
     margin: 0;
@@ -29,7 +29,7 @@
     max-width: 30rem;
     padding: 0;
     margin: 0;
-    height: 5.2rem;
+    min-height: 5.2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -53,7 +53,7 @@
     align-items: center;
 }
 
-.user-city-information {
+#user-city-information {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -94,7 +94,7 @@ body {
 }
 
 .user-degree {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     align-self: flex-end;
 }
 
@@ -159,13 +159,26 @@ body {
     border: 0;
 }
 
+#add-btn svg {
+    fill: #8f8f8f;
+    transition: all 0.1s ease;
+}
+
 .close-btn svg {
     fill: #8f8f8f;
     transition: all 0.1s ease;
 }
 
+#add-btn:hover {
+    cursor: pointer;
+}
+
 .close-btn:hover {
     cursor: pointer;
+}
+
+#add-btn:hover svg {
+    fill: whitesmoke;
 }
 
 .close-btn:hover svg {
@@ -193,9 +206,13 @@ button:focus {
     height: 1rem;
 }
 
-.add-btn {
+#add-btn {
     transform: rotate(45deg) scale(0.8);
     align-items: center;
+    width: 0.66rem;
+    background-color: transparent;
+    padding: 0;
+    border: 0;
 }
 
 .add-favorite-input:focus {
@@ -213,6 +230,12 @@ button:focus {
 .update-btn-icon svg {
     width: 1rem;
     height: 1rem;
+}
+
+#user-loader{
+    width: 5rem;
+    justify-self: center;
+    transition: all 0.3s ease;
 }
 
 @media screen and (max-width: 950px) {
