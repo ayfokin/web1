@@ -8,7 +8,7 @@ async function init() {
     // localStorage.clear()
     for (let i = 0; i < localStorage.length; i++) {
         try {
-            await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${localStorage.getItem(i.toString())}&appid=b55cb6a60addb3d56b8affed8e202b01&units=metric&mode=xml`).then((response) => {
+            await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${localStorage.getItem(i.toString())}&appid=b55cb6a60addb3d56b8affed8e202b01&units=metric&mode=xml`).then((response) => {
                 return response.text();
             }).then((data) => {
                 data = new DOMParser().parseFromString(data, "application/xml")
@@ -38,7 +38,7 @@ async function init() {
 
 async function qwe(q) {
     var cityName = q.message.value;
-    await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=b55cb6a60addb3d56b8affed8e202b01&units=metric&mode=xml`).then((response) => {
+    await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=b55cb6a60addb3d56b8affed8e202b01&units=metric&mode=xml`).then((response) => {
         if (response.status !== 200) {
             alert("Ошибка")
             location.reload()
@@ -96,7 +96,7 @@ function createFavoriteCity(data) {
 
 async function success(pos) {
     const crd = pos.coords;
-    await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&appid=b55cb6a60addb3d56b8affed8e202b01&units=metric&mode=xml`).then((response) => {
+    await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&appid=b55cb6a60addb3d56b8affed8e202b01&units=metric&mode=xml`).then((response) => {
         return response.text();
     }).then((data) => {
         data = new DOMParser().parseFromString(data, "application/xml")
@@ -106,7 +106,7 @@ async function success(pos) {
 }
 
 async function error(pos) {
-    await fetch(`http://api.openweathermap.org/data/2.5/weather?q=saint petersburg&appid=b55cb6a60addb3d56b8affed8e202b01&units=metric&mode=xml`).then((response) => {
+    await fetch(`https://api.openweathermap.org/data/2.5/weather?q=saint petersburg&appid=b55cb6a60addb3d56b8affed8e202b01&units=metric&mode=xml`).then((response) => {
         return response.text();
     }).then((data) => {
         data = new DOMParser().parseFromString(data, "application/xml")
