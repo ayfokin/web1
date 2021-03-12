@@ -7,12 +7,20 @@ async function init() {
     console.log(localStorage)
     // localStorage.clear()
     for (let i = 0; i < localStorage.length; i++) {
+        let li = document.createElement('li')
+        li.className = "favorite"
+        let img = document.createElement('img')
+        img.src = "img/loading.svg"
+        img.id = "user-loader"
+        li.append(img)
+        document.getElementById("favorite-cities").append(li)
         try {
             await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${localStorage.getItem(i.toString())}&appid=b55cb6a60addb3d56b8affed8e202b01&units=metric&mode=xml`).then((response) => {
                 return response.text();
             }).then((data) => {
                 data = new DOMParser().parseFromString(data, "application/xml")
                 var city = createFavoriteCity(data)
+                document.getElementById("favorite-cities").lastChild.remove()
                 document.getElementById("favorite-cities").append(city)
             })
         }
@@ -95,7 +103,7 @@ function createFavoriteCity(data) {
 }
 
 async function success(pos) {
-    img = document.createElement('img')
+    let img = document.createElement('img')
     img.src = "img/loading.svg"
     img.id = "user-loader"
     document.getElementById("user-city-information").innerHTML = ''
@@ -113,7 +121,7 @@ async function success(pos) {
 }
 
 async function error(pos) {
-    img = document.createElement('img')
+    let img = document.createElement('img')
     img.src = "img/loading.svg"
     img.id = "user-loader"
     document.getElementById("user-city-information").innerHTML = ''
