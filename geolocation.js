@@ -95,6 +95,12 @@ function createFavoriteCity(data) {
 }
 
 async function success(pos) {
+    img = document.createElement('img')
+    img.src = "img/loading.svg"
+    img.id = "user-loader"
+    document.getElementById("user-city-information").innerHTML = ''
+    document.getElementById("user-city-information").style.justifyContent = "Center"
+    document.getElementById("user-city-information").append(img)
     const crd = pos.coords;
     await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&appid=b55cb6a60addb3d56b8affed8e202b01&units=metric&mode=xml`).then((response) => {
         return response.text();
@@ -102,16 +108,24 @@ async function success(pos) {
         data = new DOMParser().parseFromString(data, "application/xml")
         updateUserCity(data)
     })
+    document.getElementById("user-city-information").style.justifyContent = "space-between"
     document.getElementById("user-loader").remove()
 }
 
 async function error(pos) {
+    img = document.createElement('img')
+    img.src = "img/loading.svg"
+    img.id = "user-loader"
+    document.getElementById("user-city-information").innerHTML = ''
+    document.getElementById("user-city-information").style.justifyContent = "Center"
+    document.getElementById("user-city-information").append(img)
     await fetch(`https://api.openweathermap.org/data/2.5/weather?q=saint petersburg&appid=b55cb6a60addb3d56b8affed8e202b01&units=metric&mode=xml`).then((response) => {
         return response.text();
     }).then((data) => {
         data = new DOMParser().parseFromString(data, "application/xml")
         updateUserCity(data)
     })
+    document.getElementById("user-city-information").style.justifyContent = "space-between"
     document.getElementById("user-loader").remove()
 }
 
@@ -127,9 +141,19 @@ function updateUserCity(data) {
     degree.className = "user-degree"
     degree.innerHTML = `${Math.round(data.getElementsByTagName("temperature")[0].getAttribute("value"))}&degC`
     let ul = createList(data)
-    document.getElementById("user-information-container").prepend(city)
-    document.getElementById("user-weather-container").append(weather)
-    document.getElementById("user-weather-container").append(degree)
+    let div1 = document.createElement('div')
+    div1.className = "list"
+    div1.id = "user-information-container"
+    let div2 = document.createElement('div')
+    div2.id = "user-weather-container"
+
+    div2.append(weather)
+    div2.append(degree)
+
+    div1.append(city)
+    div1.append(div2)
+
+    document.getElementById("user-city-information").append(div1)
     document.getElementById("user-city-information").append(ul)
 }
 
@@ -161,5 +185,12 @@ function createList(data) {
     ul.childNodes[4].append(coords)
     return ul
 }
+
+let updateBtns = document.querySelectorAll("button.update-btn")
+updateBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        navigator.geolocation.getCurrentPosition(success, error)
+    })
+})
 
 navigator.geolocation.getCurrentPosition(success, error)

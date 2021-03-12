@@ -56,7 +56,6 @@
 #user-city-information {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .info {
@@ -103,7 +102,7 @@ body {
     margin: 0;
 }
 
-.update-btn {
+#update-btn {
     justify-self: left;
 }
 
@@ -135,7 +134,7 @@ body {
     margin-top: 0.7rem;
 }
 
-.update-btn {
+#update-btn {
     border-radius: 8px;
     width: 5rem;
     background-color: #8f8f8f;
@@ -146,7 +145,7 @@ body {
     align-self: stretch;
 }
 
-.update-btn:hover {
+#update-btn:hover {
     cursor: pointer;
     background-color: #333336;
     color: #8f8f8f;
@@ -219,7 +218,7 @@ button:focus {
     outline: none;
 }
 
-.update-btn-icon {
+#update-btn-icon {
     display: none;
     background-color: transparent;
     border: none;
@@ -227,7 +226,7 @@ button:focus {
     height: 1rem;
 }
 
-.update-btn-icon svg {
+#update-btn-icon svg {
     width: 1rem;
     height: 1rem;
 }
@@ -235,7 +234,7 @@ button:focus {
 #user-loader{
     width: 5rem;
     justify-self: center;
-    transition: all 0.3s ease;
+    align-self: center;
 }
 
 @media screen and (max-width: 950px) {
@@ -254,10 +253,10 @@ button:focus {
     .list {
         width: 90vw;
     }
-    .update-btn {
+    #update-btn {
         display: none;
     }
-    .update-btn-icon {
+    #update-btn-icon {
         display: inherit;
     }
     div.title {
