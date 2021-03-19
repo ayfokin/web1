@@ -169,6 +169,15 @@ function updateUserCity(data) {
 }
 
 async function addNewFavoriteCity(string) {
+    let li = document.createElement('li')
+    li.className = "favorite"
+
+    let img = document.createElement('img')
+    img.src = "img/loading.svg"
+    img.id = "user-loader"
+    li.append(img)
+
+    document.getElementById("favorite-cities").append(li)
     let cityName = string.message.value;
     await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${KEY}&units=metric&mode=xml`).then((response) => {
         if (response.status !== 200) {
@@ -179,6 +188,7 @@ async function addNewFavoriteCity(string) {
     }).then((data) => {
         data = new DOMParser().parseFromString(data, "application/xml")
         let city = createFavoriteCity(data)
+        document.getElementById("favorite-cities").lastChild.remove()
         document.getElementById("favorite-cities").append(city)
     })
     localStorage.setItem(localStorage.length.toString(), cityName)
