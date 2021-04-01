@@ -1,0 +1,30 @@
+{
+  "name": "lab1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayfokin/web1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayfokin/web1/issues"
+  },
+  "homepage": "https://github.com/ayfokin/web1#readme",
+  "dependencies": {
+    "dom-parser": "^0.1.6",
+    "express": "^4.17.1",
+    "fetch": "^1.1.0",
+    "node-fetch": "^2.6.1",
+    "pg": "^8.5.1"
+  },
+  "devDependencies": {
+    "pg-promise": "^10.9.5"
+  }
+}

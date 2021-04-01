@@ -1,33 +1,71 @@
-const KEY = "073dfd9227c6474136cdf93e299ca5f9"
-
-
 let updateButtons = document.querySelectorAll("button.update-btn")
+let closeButtons
 
-function init() {
+let imgFail = document.createElement("img")
+imgFail.className = "failure"
+imgFail.src = "/img/failure.jpg"
+
+let imgLoad = document.createElement("img")
+imgLoad.className = "loader"
+imgLoad.src = "/img/loading.svg"
+
+
+async function init() {
     initUpdateButtons()
-    let promises = []
-    for (let i = 0; i < localStorage.length; i++) {
-        promises.push(addFavoriteCity(localStorage.getItem(i.toString())))
+    let cities = await getFavoriteCities()
+    if (cities) {
+        cities = await cities.json()
+        let promises = []
+        console.log(cities.length)
+        for (let i = 0; i < cities.length; i++) {
+            promises.push(addFavoriteCity(cities, false))
+        }
+        Promise.all(promises).then(() => {
+            initCloseButtons()
+        })
     }
-    Promise.all(promises).then(() => {
-        initCloseButtons()
-    })
 }
 
 function initCloseButtons() {
-    let closeButtons = document.querySelectorAll("button.close-btn")
+    closeButtons = document.querySelectorAll("button.close-btn")
     closeButtons.forEach(function (btn, i) {
         let newBtn = btn.cloneNode(true)
         btn.replaceWith(newBtn)
         newBtn.addEventListener('click', function () {
-            this.parentElement.parentElement.remove()
-            for (let j = i; j < localStorage.length; j++) {
-                localStorage.setItem(j.toString(), localStorage.getItem((j + 1).toString()))
-            }
-            localStorage.removeItem((localStorage.length - 1).toString())
-            initCloseButtons()
+            deleting(newBtn)
+            deleteCity(i).then((response) => {
+                if (response) {
+                    if (response.status === 202) {
+                        this.parentElement.parentElement.remove()
+                        initCloseButtons()
+                    }
+                }
+                undeleting(newBtn)
+            }).catch((e) => {
+                console.log(e.message)
+                alert("Что-то пошло не так")
+            })
         })
     })
+}
+
+function deleting(btn) {
+    btn.hidden = true
+    let load = imgLoad.cloneNode(true)
+    load.className = "delete-load"
+    btn.parentElement.prepend(load)
+    let div = document.createElement("div")
+    div.className = "crutch"
+    div.style.visibility = "visible"
+    document.getElementById("favorite-cities").append(div)
+}
+
+function undeleting(btn) {
+    let div = document.querySelector(".crutch")
+    div.style.visibility = "hidden"
+    div.remove()
+    btn.parentElement.children[0].remove()
+    btn.hidden = false
 }
 
 function initUpdateButtons() {
@@ -80,16 +118,12 @@ function fillCityInformation(t, data) {
 }
 
 function addNewCity(string) {
-    addFavoriteCity(string).then((result) => {
-        if (result === 0) {
-            localStorage.setItem((localStorage.length).toString(), string)
-            console.log(localStorage)
-            initCloseButtons()
-        }
+    addFavoriteCity(string, true).then(() => {
+        initCloseButtons()
     })
 }
 
-async function addFavoriteCity(string) {
+async function addFavoriteCity(string, add) {
     let container = document.createElement("li")
     container.className = "favorite"
     loading(container)
@@ -97,22 +131,25 @@ async function addFavoriteCity(string) {
     parent.appendChild(container)
 
     let data = await getDataByCityName(string)
-    if (data === -1) {
-        alert("Беды во время загрузки")
-        container.remove()
-        return 1
-    }
-    if (data === undefined) {
-        alert("City not found or server is not available")
-        container.remove()
-        return 1
-    }
-    let city = createFavoriteCity(data)
 
-    container.innerHTML = ""
-    resetStyles(container)
-    container.append(city)
-    return 0
+    if (data) {
+        if (add) {
+            addFavoriteCityToDB(string).catch((e) => {
+                alert("Возникла проблема при добавлении города в БД")
+                console.log(e.message)
+                container.remove()
+                return false
+            })
+        }
+        let city = createFavoriteCity(data)
+
+        container.innerHTML = ""
+        resetStyles(container)
+        container.append(city)
+        return true
+    }
+    container.remove()
+    return false
 }
 
 function success(pos) {
@@ -131,7 +168,13 @@ async function main(success, pos) {
     } else {
         data = await getDataByCityName("saint petersburg")
     }
-    updateUserCity(data)
+    if (data) {
+        updateUserCity(data)
+    } else {
+        let parent = document.getElementById("user-city-information")
+        parent.innerHTML = ''
+        parent.appendChild(imgFail)
+    }
 }
 
 function loading(doc) {
@@ -139,34 +182,69 @@ function loading(doc) {
     doc.style.display = "flex"
     doc.style.justifyContent = "center"
     doc.style.alignItems = "center"
-    let t = document.querySelector('#loading')
-    let clone = document.importNode(t.content, true)
-    doc.append(clone)
+
+    let div = document.createElement("div")
+    div.className = "load"
+
+    let span = document.createElement("span")
+    span.innerText = "Данные загружаются"
+
+    let img = imgLoad.cloneNode(true)
+
+    div.appendChild(img)
+    div.appendChild(span)
+    doc.append(div)
 }
 
 function getDataByCoords(pos) {
     const crd = pos.coords;
-    let link = `https://api.openweathermap.org/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&appid=${KEY}&units=metric&mode=xml`
-    return sendRequest(link)
+    let link = `http://localhost:3000/weather/coordinates?lat=${crd.latitude}&lon=${crd.longitude}`
+    return getData(link)
 }
 
 function getDataByCityName(city) {
-    let link = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${KEY}&units=metric&mode=xml`
-    return sendRequest(link)
+    let link = `http://localhost:3000/weather/city?q=${city}`
+    return getData(link)
 }
 
-function sendRequest(link) {
-    return fetch(link).then((response) => {
-        if (response.status !== 200) {
-            return undefined
-        } else {
-            return response.text()
-                .then((data) => {
-                    return new DOMParser().parseFromString(data, "application/xml")
-                })
+function addFavoriteCityToDB(city) {
+    let link = `http://localhost:3000/favorites?city=${city}`
+    return sendRequest(link, "POST")
+}
+
+function getFavoriteCities() {
+    let link = `http://localhost:3000/favorites`
+    return sendRequest(link, "GET")
+}
+
+
+function deleteCity(id) {
+    let link = `http://localhost:3000/favorites?id=${id}`
+    return sendRequest(link, "DELETE")
+}
+
+function getData(link) {
+    return sendRequest(link, "GET").then(async (response) => {
+        if (response) {
+            if (response.status === 200) {
+                return new DOMParser().parseFromString(await response.text(), "application/xml")
+            }
+            alert("Город не найден")
         }
-    }).catch(() => {
-        return -1
+        return false
+    })
+}
+
+
+function sendRequest(link, type) {
+    return fetch(link, {
+        "method": type
+    }).then((response) => {
+        return response
+    }).catch((e) => {
+        console.log(e)
+        alert("Сервер недоступен или отсутствует подключение к интернету")
+        return false
     })
 }
 
@@ -175,5 +253,6 @@ document.getElementById("add-form").addEventListener('submit', function (event) 
     document.getElementById("add-favorite-input").value = ""
     event.preventDefault()
 })
+
 init()
 navigator.geolocation.getCurrentPosition(success, error)
